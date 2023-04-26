@@ -81,6 +81,6 @@ jobs:
             uses: ncipollo/release-action@v1
             with:
               artifactErrorsFailBuild: true
-              artifacts: "release/"
+              artifacts: "release/*"
               bodyFile: "CHANGELOG.md"
               token: ${{ secrets.ACCESS_TOKEN }}
