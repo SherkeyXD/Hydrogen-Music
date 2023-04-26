@@ -42,7 +42,6 @@ jobs:
       - name: Build Electron App
         run: npm run dist
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           USE_SYSTEM_FPM: "true"
     
       - name: Cleanup artifacts
@@ -53,7 +52,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.os }}-build.zip
+          name: ${{ matrix.os }}
           path: release
 
 
@@ -71,10 +70,10 @@ jobs:
             with: 
               path: release
 
-          - name: Unzip and cleanup artifacts
+          - name: Cleanup artifacts
             run: |
-              find . -name '*.zip' -exec unzip -o {} \;
-              find . -name '*-build.zip' -exec rm -f {} \;
+              find ./release -type f -exec mv {} ./release \;
+              find ./release -type d -empty -delete
 
           - name: Create Release
             uses: ncipollo/release-action@v1
@@ -83,4 +82,3 @@ jobs:
               artifacts: "release/"
               generateReleaseNotes: true
               token: ${{ secrets.ACCESS_TOKEN }}
-              updateOnlyUnreleased: true
