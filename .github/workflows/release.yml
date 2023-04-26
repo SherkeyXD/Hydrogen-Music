@@ -75,7 +75,7 @@ jobs:
               find ./release -type d -empty -delete
 
           - name: Run auto-changelog
-            run: npx auto-changelog -p -v ${{ github.ref }} --hide-credit 
+            run: npx auto-changelog -p --hide-credit 
 
           - name: Create Release
             uses: ncipollo/release-action@v1
