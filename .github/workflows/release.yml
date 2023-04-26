@@ -1,15 +1,9 @@
-name: Release Test
+name: Release
 
 on:
   push:
     tags:
       - v*
-  workflow_dispatch:
-    inputs:
-      tags:
-        description: "tag name"
-        required: true
-        default: "test"
     
 jobs:
   build:
@@ -65,6 +59,14 @@ jobs:
           - name: Checkout code
             uses: actions/checkout@v3
 
+          - name: Install Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: "18.12.0"
+
+          - name: Install Dependencies
+            run: npm install
+
           - name: Download artifacts
             uses: actions/download-artifact@v3
             with: 
@@ -75,10 +77,13 @@ jobs:
               find ./release -type f -exec mv {} ./release \;
               find ./release -type d -empty -delete
 
+          - name: Run auto-changelog
+            run: auto-changelog -p
+
           - name: Create Release
             uses: ncipollo/release-action@v1
             with:
               artifactErrorsFailBuild: true
               artifacts: "release/"
-              generateReleaseNotes: true
+              bodyFile: "CHANGELOG.md"
               token: ${{ secrets.ACCESS_TOKEN }}
