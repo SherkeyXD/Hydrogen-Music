@@ -64,9 +64,6 @@ jobs:
             with:
               node-version: "18.12.0"
 
-          - name: Install Dependencies
-            run: npm install
-
           - name: Download artifacts
             uses: actions/download-artifact@v3
             with: 
@@ -78,7 +75,7 @@ jobs:
               find ./release -type d -empty -delete
 
           - name: Run auto-changelog
-            run: auto-changelog -p
+            run: npx auto-changelog -p
 
           - name: Create Release
             uses: ncipollo/release-action@v1
