@@ -1,0 +1,86 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+    
+jobs:
+  build:
+    name: Build electron app
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+            
+    steps:
+      - name: Check out git repository
+        uses: actions/checkout@v3
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.12.0"
+          
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Setup fpm
+        if: matrix.os == 'ubuntu-latest'
+        uses: fortran-lang/setup-fpm@v5
+        with:
+          fpm-version: "v0.8.1"
+        
+      - name: Build Electron App
+        run: npm run dist
+        env:
+          USE_SYSTEM_FPM: "true"
+    
+      - name: Cleanup artifacts
+        run: |
+          npx rimraf release/*.yml release/*.yaml release/*.blockmap
+          npx rimraf release/*-unpacked
+          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.os }}
+          path: release
+
+
+  release:
+    name: Release new version
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+
+          - name: Install Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: "18.12.0"
+
+          - name: Download artifacts
+            uses: actions/download-artifact@v3
+            with: 
+              path: release
+
+          - name: Cleanup artifacts
+            run: |
+              find ./release -type f -exec mv {} ./release \;
+              find ./release -type d -empty -delete
+
+          - name: Run auto-changelog
+            run: npx auto-changelog -p --hide-credit 
+
+          - name: Create Release
+            uses: ncipollo/release-action@v1
+            with:
+              artifactErrorsFailBuild: true
+              artifacts: "release/*"
+              bodyFile: "CHANGELOG.md"
+              token: ${{ secrets.ACCESS_TOKEN }}
