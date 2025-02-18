@@ -614,6 +614,9 @@
                     transform: translate(-10px);
                     opacity: 0;
                     animation: video-quality-in 0.1s forwards;
+                    position: absolute;
+                    top: 10px;
+                    right: 15px;
                     @keyframes video-quality-in {
                         0%{transform: translate(-5px);}
                         100%{transform: translate(0px);opacity: 1;}
@@ -626,9 +629,6 @@
                         font: 22px Bender-Bold;
                         color: rgba(255, 255, 255, 0.9);
                     }
-                    position: absolute;
-                    top: 10px;
-                    right: 15px;
                 }
                 .info-title-cn{
                     font: 20px SourceHanSansCN-Bold;

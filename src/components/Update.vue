@@ -219,6 +219,7 @@
                         position: relative;
                         overflow: hidden;
                         opacity: 0;
+                        animation: version 0.3s 1.5s cubic-bezier(.5,0,.15,1) forwards;
                         &::after{
                             content: '';
                             width: 100%;
@@ -234,7 +235,6 @@
                                 100%{left: 0%;}
                             }
                         }
-                        animation: version 0.3s 1.5s cubic-bezier(.5,0,.15,1) forwards;
                         @keyframes version {
                             0%{opacity: 0;}
                             100%{opacity: 1;}

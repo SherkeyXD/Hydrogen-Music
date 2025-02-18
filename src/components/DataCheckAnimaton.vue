@@ -34,6 +34,7 @@
     position: relative;
     opacity: 0;
     overflow: hidden;
+    animation: black-back-twinkle 0.2s 0.3s linear forwards;
     &::after{
         content: '';
         width: 100%;
@@ -49,7 +50,6 @@
             100%{top: 100%;}
         }
     }
-    animation: black-back-twinkle 0.2s 0.3s linear forwards;
     @keyframes black-back-twinkle {
         0%{opacity: 1;}
         50%{opacity: 1;}
