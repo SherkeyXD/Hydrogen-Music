@@ -7,7 +7,7 @@ const registerShortcuts = require('./src/electron/shortcuts')
 
 const { app, BrowserWindow, globalShortcut } = require('electron')
 const Winstate = require('electron-win-state').default
-const { autoUpdater } = require("electron-updater");
+const { autoUpdater } = require("update-electron-app");
 const path = require('path')
 const Store = require('electron-store');
 const settingsStore = new Store({name: 'settings'});
@@ -74,13 +74,14 @@ const createWindow = () => {
         win.loadFile(indexHtml)
     win.once('ready-to-show', () => {
         win.show()
-        if(process.resourcesPath.indexOf('\\node_modules\\') == -1) {
-            autoUpdater.autoDownload = false
-            autoUpdater.on('update-available', info => {
-                win.webContents.send('check-update', info.version)
-            });
-            autoUpdater.checkForUpdatesAndNotify()
-        }
+        // 先关了自动更新
+        //if(process.resourcesPath.indexOf('\\node_modules\\') == -1) {
+        //    autoUpdater.autoDownload = false
+        //    autoUpdater.on('update-available', info => {
+        //        win.webContents.send('check-update', info.version)
+        //    });
+        //    autoUpdater.checkForUpdatesAndNotify()
+        //}
     })
     winstate.manage(win)
     win.on('close', async (event) => {
