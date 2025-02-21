@@ -76,7 +76,8 @@ const createWindow = () => {
     myWindow = win;
 
     if (process.resourcesPath.includes("\\node_modules\\")) {
-        win.loadURL("https://github.com/");
+        // dev mode
+        win.loadURL("http://localhost:5173/");
     } else {
         win.loadFile(indexHtml);
     }
