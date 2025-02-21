@@ -1,12 +1,12 @@
 <script setup>
 import { onActivated, ref } from "vue";
 import { useRouter } from "vue-router";
-import { getNewAlbum } from "../api/album.mjs";
-import { getRecommendedArtists } from "../api/artist.mjs";
-import { getRecommendedSongList, getTopList } from "../api/playlist.mjs";
-import { useLibraryStore } from "../store/libraryStore";
-import { useLocalStore } from "../store/localStore";
-import { usePlayerStore } from "../store/playerStore";
+import { getNewAlbum } from "@/api/album.mjs";
+import { getRecommendedArtists } from "@/api/artist.mjs";
+import { getRecommendedSongList, getTopList } from "@/api/playlist.mjs";
+import { useLibraryStore } from "@/store/libraryStore";
+import { useLocalStore } from "@/store/localStore";
+import { usePlayerStore } from "@/store/playerStore";
 const libraryStore = useLibraryStore();
 const localStore = useLocalStore();
 const playerStore = usePlayerStore();

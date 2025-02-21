@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "@/utils/request";
 
 /**
  * 说明 : 登录后调用此接口 , 可获取云盘数据 , 获取的数据没有对应 url, 需要再调用一 次 /song/url 获取 url

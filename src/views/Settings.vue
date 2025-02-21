@@ -1,15 +1,15 @@
 <script setup>
 import { ref, onActivated } from "vue";
 import { onBeforeRouteLeave, useRouter } from "vue-router";
-import { logout } from "../api/user.mjs";
-import { noticeOpen, dialogOpen } from "../utils/dialog";
-import { initSettings } from "../utils/initApp";
-import { getVipInfo } from "../api/user.mjs";
-import { isLogin } from "../utils/authority";
-import { useUserStore } from "../store/userStore";
-import { usePlayerStore } from "../store/playerStore";
-import { insertCustomFontStyle } from "../utils/setFont";
-import Selector from "../components/Selector.vue";
+import { logout } from "@/api/user.mjs";
+import { noticeOpen, dialogOpen } from "@/utils/dialog";
+import { initSettings } from "@/utils/initApp";
+import { getVipInfo } from "@/api/user.mjs";
+import { isLogin } from "@/utils/authority";
+import { useUserStore } from "@/store/userStore";
+import { usePlayerStore } from "@/store/playerStore";
+import { insertCustomFontStyle } from "@/utils/setFont";
+import Selector from "@/components/Selector.vue";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -792,7 +792,7 @@ const setCustomFont = () => {
             </div>
             <div class="app-version">
                 <div class="app-icon">
-                    <img src="../assets/icon/icon.ico" alt="" />
+                    <img src="@/assets/icon/icon.ico" alt="" />
                 </div>
                 <div class="version">V0.5.0</div>
                 <div class="app-author" @click="toGithub()">

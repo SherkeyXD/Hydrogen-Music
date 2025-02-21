@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { noticeOpen } from "../utils/dialog.mjs";
+import { noticeOpen } from "@/utils/dialog.mjs";
 
 export const useLocalStore = defineStore("localStore", {
     state: () => {

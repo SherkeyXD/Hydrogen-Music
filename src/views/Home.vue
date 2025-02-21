@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { logout } from "../api/user.mjs";
-import { noticeOpen } from "../utils/dialog.mjs";
-import { isLogin } from "../utils/authority.mjs";
-import { useUserStore } from "../store/userStore.mjs";
+import { logout } from "@/api/user.mjs";
+import { noticeOpen } from "@/utils/dialog.mjs";
+import { isLogin } from "@/utils/authority.mjs";
+import { useUserStore } from "@/store/userStore.mjs";
 
 const router = useRouter();
 const userStore = useUserStore();

@@ -1,4 +1,4 @@
-import request from "../utils/request.mjs";
+import request from "@/utils/request.mjs";
 
 /**
  * 收藏的 MV 列表

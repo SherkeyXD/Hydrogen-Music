@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import VueSlider from "vue-slider-component";
-import { noticeOpen } from "../utils/dialog";
-import { checkMusic, getMusicUrl } from "../api/song.mjs";
-import { usePlayerStore } from "../store/playerStore";
-import { useLocalStore } from "../store/localStore";
+import { noticeOpen } from "@/utils/dialog";
+import { checkMusic, getMusicUrl } from "@/api/song.mjs";
+import { usePlayerStore } from "@/store/playerStore";
+import { useLocalStore } from "@/store/localStore";
 import { storeToRefs } from "pinia";
 const localStore = useLocalStore();
 const { isFirstDownload, isDownloading, downloadList } =

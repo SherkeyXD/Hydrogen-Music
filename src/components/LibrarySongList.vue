@@ -2,21 +2,21 @@
 import { computed } from "vue";
 import { RecycleScroller } from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
-import { songTime } from "../utils/player";
+import { songTime } from "@/utils/player";
 import { nanoid } from "nanoid";
 import {
     addToList,
     addSong,
     setShuffledList,
     addToNext,
-} from "../utils/player";
+} from "@/utils/player";
 import { useRouter } from "vue-router";
-import { useUserStore } from "../store/userStore";
-import { useLibraryStore } from "../store/libraryStore";
-import { usePlayerStore } from "../store/playerStore";
-import { useOtherStore } from "../store/otherStore";
+import { useUserStore } from "@/store/userStore";
+import { useLibraryStore } from "@/store/libraryStore";
+import { usePlayerStore } from "@/store/playerStore";
+import { useOtherStore } from "@/store/otherStore";
 import { storeToRefs } from "pinia";
-import { noticeOpen } from "../utils/dialog";
+import { noticeOpen } from "@/utils/dialog";
 
 const router = useRouter();
 const userStore = useUserStore();

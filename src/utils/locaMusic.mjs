@@ -1,5 +1,5 @@
-import pinia from "../store/pinia";
-import { useLocalStore } from "../store/localStore";
+import pinia from "@/store/pinia";
+import { useLocalStore } from "@/store/localStore";
 import { storeToRefs } from "pinia";
 import { nanoid } from "nanoid";
 import { noticeOpen } from "./dialog";

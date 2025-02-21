@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "@/utils/request";
 
 /**
  * 调用此接口可生成一个 key

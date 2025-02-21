@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getCookie, isLogin } from "./authority.mjs";
-import pinia from "../store/pinia.mjs";
-import { useLibraryStore } from "../store/libraryStore.mjs";
+import pinia from "@/store/pinia.mjs";
+import { useLibraryStore } from "@/store/libraryStore.mjs";
 
 const libraryStore = useLibraryStore(pinia);
 

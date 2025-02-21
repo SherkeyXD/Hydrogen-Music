@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import { dialogCancel, dialogConfirm } from "../utils/dialog.mjs";
-import { useOtherStore } from "../store/otherStore.mjs";
+import { dialogCancel, dialogConfirm } from "@/utils/dialog.mjs";
+import { useOtherStore } from "@/store/otherStore.mjs";
 import { storeToRefs } from "pinia";
 
 const otherStore = useOtherStore();

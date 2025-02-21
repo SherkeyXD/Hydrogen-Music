@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, computed, onMounted } from "vue";
-import { changeProgress, musicVideoCheck, songTime } from "../utils/player.mjs";
-import { usePlayerStore } from "../store/playerStore.mjs";
+import { changeProgress, musicVideoCheck, songTime } from "@/utils/player.mjs";
+import { usePlayerStore } from "@/store/playerStore.mjs";
 import { storeToRefs } from "pinia";
 
 const playerStore = usePlayerStore();

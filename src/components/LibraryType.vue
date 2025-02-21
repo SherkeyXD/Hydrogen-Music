@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from "vue";
-import router from "../router/router.mjs";
-import { getUserPlaylistCount, getUserPlaylist } from "../api/user.mjs";
-import { getUserSubAlbum } from "../api/album.mjs";
-import { getUserSubArtists } from "../api/artist.mjs";
-import { getUserSubMV } from "../api/mv.mjs";
-import { useUserStore } from "../store/userStore";
-import { useLibraryStore } from "../store/libraryStore";
-import { useLocalStore } from "../store/localStore";
+import router from "@/router/router.mjs";
+import { getUserPlaylistCount, getUserPlaylist } from "@/api/user.mjs";
+import { getUserSubAlbum } from "@/api/album.mjs";
+import { getUserSubArtists } from "@/api/artist.mjs";
+import { getUserSubMV } from "@/api/mv.mjs";
+import { useUserStore } from "@/store/userStore";
+import { useLibraryStore } from "@/store/libraryStore";
+import { useLocalStore } from "@/store/localStore";
 import { storeToRefs } from "pinia";
-import { scanMusic } from "../utils/locaMusic.mjs";
+import { scanMusic } from "@/utils/locaMusic.mjs";
 
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);

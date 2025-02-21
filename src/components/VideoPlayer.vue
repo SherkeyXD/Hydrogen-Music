@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Plyr from "plyr";
-import "../assets/css/plyr.css";
-import { useOtherStore } from "../store/otherStore.mjs";
+import "@/assets/css/plyr.css";
+import { useOtherStore } from "@/store/otherStore.mjs";
 import { storeToRefs } from "pinia";
 
 const otherStore = useOtherStore();

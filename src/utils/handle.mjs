@@ -1,8 +1,8 @@
-import pinia from "../store/pinia";
-import { setCookies } from "../utils/authority";
-import { getUserProfile } from "../api/user.mjs";
+import pinia from "@/store/pinia";
+import { setCookies } from "@/utils/authority";
+import { getUserProfile } from "@/api/user.mjs";
 import { getUserLikelist } from "./initApp.mjs";
-import { useUserStore } from "../store/userStore";
+import { useUserStore } from "@/store/userStore";
 
 const userStore = useUserStore(pinia);
 const { updateUser } = userStore;

@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onActivated } from "vue";
 import { onBeforeRouteLeave, onBeforeRouteUpdate, useRouter } from "vue-router";
-import { useOtherStore } from "../store/otherStore";
+import { useOtherStore } from "@/store/otherStore";
 import { storeToRefs } from "pinia";
-import LibrarySongList from "../components/LibrarySongList.vue";
-import LibraryAlbumList from "../components/LibraryAlbumList.vue";
-import SearchResultList from "../components/SearchResultList.vue";
+import LibrarySongList from "@/components/LibrarySongList.vue";
+import LibraryAlbumList from "@/components/LibraryAlbumList.vue";
+import SearchResultList from "@/components/SearchResultList.vue";
 
 const otherStore = useOtherStore();
 const { getSearchInfo } = otherStore;

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useLocalStore } from "../store/localStore";
+import { useLocalStore } from "@/store/localStore";
 
 const router = useRouter();
 const localStore = useLocalStore();

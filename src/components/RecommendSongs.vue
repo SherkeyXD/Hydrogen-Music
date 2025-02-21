@@ -1,6 +1,6 @@
 <script setup>
-import { useLibraryStore } from "../store/libraryStore";
-import { playAll } from "../utils/player";
+import { useLibraryStore } from "@/store/libraryStore";
+import { playAll } from "@/utils/player";
 import LibrarySongList from "./LibrarySongList.vue";
 
 const libraryStore = useLibraryStore();

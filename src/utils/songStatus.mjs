@@ -1,5 +1,5 @@
-import pinia from "../store/pinia.mjs";
-import { useUserStore } from "../store/userStore.mjs";
+import pinia from "@/store/pinia.mjs";
+import { useUserStore } from "@/store/userStore.mjs";
 import { isLogin } from "./authority.mjs";
 
 const userStore = useUserStore(pinia);

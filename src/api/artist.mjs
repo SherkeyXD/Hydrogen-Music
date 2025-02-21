@@ -1,4 +1,4 @@
-import request from "../utils/request.mjs";
+import request from "@/utils/request.mjs";
 
 /**
  * 调用此接口获取排行榜中的歌手榜

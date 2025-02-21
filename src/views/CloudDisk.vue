@@ -2,11 +2,11 @@
 import { ref, onMounted } from "vue";
 import dayjs from "dayjs";
 import VueSlider from "vue-slider-component";
-import { noticeOpen } from "../utils/dialog";
-import { getCloudDiskData, uploadCloudSong } from "../api/cloud.mjs";
-import CloudFileList from "../components/CloudFileList.vue";
-import { useUserStore } from "../store/userStore";
-import { useCloudStore } from "../store/cloudStore";
+import { noticeOpen } from "@/utils/dialog";
+import { getCloudDiskData, uploadCloudSong } from "@/api/cloud.mjs";
+import CloudFileList from "@/components/CloudFileList.vue";
+import { useUserStore } from "@/store/userStore";
+import { useCloudStore } from "@/store/cloudStore";
 import { storeToRefs } from "pinia";
 const userStore = useUserStore();
 const cloudStore = useCloudStore();

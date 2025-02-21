@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onActivated } from "vue";
 import { onBeforeRouteLeave } from "vue-router";
-import { getBanner } from "../api/other.mjs";
+import { getBanner } from "@/api/other.mjs";
 const timer1 = ref(null);
 const timer2 = ref(null);
 const timer3 = ref(null);

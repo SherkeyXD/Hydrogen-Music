@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from "vue";
 import dayjs from "dayjs";
-import { dialogOpen, noticeOpen } from "../utils/dialog";
-import { deleteCloudSong } from "../api/cloud.mjs";
-import { addSong, setShuffledList } from "../utils/player";
-import { useCloudStore } from "../store/cloudStore";
-import { usePlayerStore } from "../store/playerStore";
-import { useLibraryStore } from "../store/libraryStore";
-import { useLocalStore } from "../store/localStore";
+import { dialogOpen, noticeOpen } from "@/utils/dialog";
+import { deleteCloudSong } from "@/api/cloud.mjs";
+import { addSong, setShuffledList } from "@/utils/player";
+import { useCloudStore } from "@/store/cloudStore";
+import { usePlayerStore } from "@/store/playerStore";
+import { useLibraryStore } from "@/store/libraryStore";
+import { useLocalStore } from "@/store/localStore";
 import { storeToRefs } from "pinia";
 
 const cloudStore = useCloudStore();

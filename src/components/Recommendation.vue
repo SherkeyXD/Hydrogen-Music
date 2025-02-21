@@ -1,11 +1,11 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { playAll } from "../utils/player";
+import { playAll } from "@/utils/player";
 import { useRouter } from "vue-router";
-import { useLibraryStore } from "../store/libraryStore";
-import { useLocalStore } from "../store/localStore";
-import { isLogin } from "../utils/authority";
-import { noticeOpen } from "../utils/dialog";
+import { useLibraryStore } from "@/store/libraryStore";
+import { useLocalStore } from "@/store/localStore";
+import { isLogin } from "@/utils/authority";
+import { noticeOpen } from "@/utils/dialog";
 const libraryStore = useLibraryStore();
 const localStore = useLocalStore();
 const router = useRouter();

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { useOtherStore } from "../store/otherStore.mjs";
+import { useOtherStore } from "@/store/otherStore.mjs";
 
 const otherStore = useOtherStore();
 </script>

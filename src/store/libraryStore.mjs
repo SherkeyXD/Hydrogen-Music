@@ -4,16 +4,16 @@ import {
     getPlaylistAll,
     getRecommendSongs,
     playlistDynamic,
-} from "../api/playlist.mjs";
-import { getAlbumDetail, albumDynamic } from "../api/album.mjs";
+} from "@/api/playlist.mjs";
+import { getAlbumDetail, albumDynamic } from "@/api/album.mjs";
 import {
     getArtistDetail,
     getArtistFansCount,
     getArtistTopSong,
     getArtistAlbum,
-} from "../api/artist.mjs";
-import { getArtistMV } from "../api/mv.mjs";
-import { mapSongsPlayableStatus } from "../utils/songStatus.mjs";
+} from "@/api/artist.mjs";
+import { getArtistMV } from "@/api/mv.mjs";
+import { mapSongsPlayableStatus } from "@/utils/songStatus.mjs";
 
 export const useLibraryStore = defineStore("libraryStore", {
     state: () => {

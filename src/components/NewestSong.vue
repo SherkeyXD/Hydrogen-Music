@@ -1,9 +1,9 @@
 <script setup>
 import { onActivated, ref } from "vue";
 import { useRouter } from "vue-router";
-import { getNewestSong } from "../api/song.mjs";
-import { addToNext } from "../utils/player";
-import { usePlayerStore } from "../store/playerStore";
+import { getNewestSong } from "@/api/song.mjs";
+import { addToNext } from "@/utils/player";
+import { usePlayerStore } from "@/store/playerStore";
 
 const router = useRouter();
 const playerStore = usePlayerStore();

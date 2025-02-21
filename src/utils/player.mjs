@@ -1,13 +1,13 @@
-import pinia from "../store/pinia.mjs";
+import pinia from "@/store/pinia.mjs";
 import { Howl, Howler } from "howler";
 import dayjs from "dayjs";
 import { noticeOpen } from "./dialog.mjs";
-import { checkMusic, getMusicUrl, likeMusic, getLyric } from "../api/song.mjs";
-import { getLikelist } from "../api/user.mjs";
-import { useUserStore } from "../store/userStore.mjs";
-import { usePlayerStore } from "../store/playerStore.mjs";
-import { useLibraryStore } from "../store/libraryStore.mjs";
-import { useOtherStore } from "../store/otherStore.mjs";
+import { checkMusic, getMusicUrl, likeMusic, getLyric } from "@/api/song.mjs";
+import { getLikelist } from "@/api/user.mjs";
+import { useUserStore } from "@/store/userStore.mjs";
+import { usePlayerStore } from "@/store/playerStore.mjs";
+import { useLibraryStore } from "@/store/libraryStore.mjs";
+import { useOtherStore } from "@/store/otherStore.mjs";
 import { storeToRefs } from "pinia";
 import duration from "dayjs/plugin/duration";
 

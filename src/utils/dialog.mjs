@@ -1,4 +1,4 @@
-import { useOtherStore } from "../store/otherStore.mjs";
+import { useOtherStore } from "@/store/otherStore.mjs";
 import { storeToRefs } from "pinia";
 const otherStore = useOtherStore();
 const {

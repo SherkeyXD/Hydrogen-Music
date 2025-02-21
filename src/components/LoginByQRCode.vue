@@ -2,9 +2,9 @@
 import { watch, ref } from "vue";
 import DataCheckAnimaton from "./DataCheckAnimaton.vue";
 import QRCode from "qrcode";
-import { getQRcode, checkQRcodeStatus } from "../api/login.mjs";
+import { getQRcode, checkQRcodeStatus } from "@/api/login.mjs";
 import { onBeforeRouteLeave } from "vue-router";
-import { loginHandle } from "../utils/handle";
+import { loginHandle } from "@/utils/handle";
 
 const props = defineProps(["firstLoadMode"]);
 const firstLoadMode = ref(props.firstLoadMode);

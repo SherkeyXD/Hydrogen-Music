@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import ChildrenFolder from "../components/ChildrenFolder.vue";
-import LocalMusicClassify from "../components/LocalMusicClassify.vue";
-import { useLibraryStore } from "../store/libraryStore";
+import ChildrenFolder from "@/components/ChildrenFolder.vue";
+import LocalMusicClassify from "@/components/LocalMusicClassify.vue";
+import { useLibraryStore } from "@/store/libraryStore";
 import { storeToRefs } from "pinia";
 const router = useRouter();
 const libraryStore = useLibraryStore();
