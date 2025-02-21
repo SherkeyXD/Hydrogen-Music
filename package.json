@@ -2,19 +2,17 @@
     "name": "hydrogen-music",
     "private": true,
     "version": "0.5.1",
-    "main": "background.mjs",
+    "main": "src/background.mjs",
     "author": "Kaidesuyo & SherkeyXD",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview",
         "start": "nodemon --exec electron --trace-warnings . --watch ./ --ext .html",
-        "prettier": "prettier . --write",
-        "dist": "vite build && electron-builder -p never",
-        "publish": "vite build && electron-builder -p always"
+        "lint": "prettier . --write",
+        "dist": "vite build && electron-forge make",
+        "publish": "vite build && electron-forge publish"
     },
     "dependencies": {
-        "NeteaseCloudMusicApi": "4.8.10",
         "axios": "^1.7.9",
         "dayjs": "^1.11.13",
         "electron-store": "^10.0.1",
@@ -24,6 +22,7 @@
         "js-md5": "^0.8.3",
         "music-metadata": "^11.0.0",
         "nanoid": "^5.1.0",
+        "NeteaseCloudMusicApi": "4.8.10",
         "normalize.css": "^8.0.1",
         "pinia": "^3.0.1",
         "pinia-plugin-persistedstate": "^4.2.0",
@@ -37,8 +36,6 @@
     },
     "devDependencies": {
         "@electron-forge/cli": "^7.7.0",
-        "@electron-forge/maker-deb": "^7.7.0",
-        "@electron-forge/maker-rpm": "^7.7.0",
         "@electron-forge/maker-squirrel": "^7.7.0",
         "@electron-forge/maker-zip": "^7.7.0",
         "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
