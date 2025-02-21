@@ -2,7 +2,12 @@ export const absolutePosition = (element, target) => {
     if (element) {
         let elementDimensions = {
             width: element.offsetWidth,
-            height: element.offsetHeight || Math.min(parseInt(element.style.maxHeight.slice(0, -2)), element.scrollHeight + 16),
+            height:
+                element.offsetHeight ||
+                Math.min(
+                    parseInt(element.style.maxHeight.slice(0, -2)),
+                    element.scrollHeight + 16,
+                ),
         };
         let elementOuterHeight = elementDimensions.height;
         let elementOuterWidth = elementDimensions.width;
@@ -33,9 +38,9 @@ export const absolutePosition = (element, target) => {
             left = Math.max(
                 0,
                 targetOffset.left +
-                windowScrollLeft +
-                targetOuterWidth -
-                elementOuterWidth
+                    windowScrollLeft +
+                    targetOuterWidth -
+                    elementOuterWidth,
             );
         else left = targetOffset.left + windowScrollLeft;
 

@@ -1,8 +1,8 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { parseFile } from 'music-metadata';
-import { nanoid } from 'nanoid';
-import { fileURLToPath } from 'url';
+import fs from "fs-extra";
+import path from "path";
+import { parseFile } from "music-metadata";
+import { nanoid } from "nanoid";
+import { fileURLToPath } from "url";
 
 // 获取 __dirname 的替代方案
 const __filename = fileURLToPath(import.meta.url);
@@ -12,7 +12,31 @@ const __dirname = path.dirname(__filename);
  * 函数作用: 初始化
  * @returns 处理完的对象
  */
-const musicType = ['.aiff', '.aac', '.ape', '.asf', '.bwf', '.dsdiff', '.dsf', '.flac', '.mp2', '.matroska', '.mp3', '.mpc', '.mpeg4', '.ogg', '.opus', '.speex', '.theora', '.vorbis', '.wav', '.webm', '.wv', '.wma', '.m4a'];
+const musicType = [
+    ".aiff",
+    ".aac",
+    ".ape",
+    ".asf",
+    ".bwf",
+    ".dsdiff",
+    ".dsf",
+    ".flac",
+    ".mp2",
+    ".matroska",
+    ".mp3",
+    ".mpc",
+    ".mpeg4",
+    ".ogg",
+    ".opus",
+    ".speex",
+    ".theora",
+    ".vorbis",
+    ".wav",
+    ".webm",
+    ".wv",
+    ".wma",
+    ".m4a",
+];
 let getType = null;
 
 export default async function getDirTree(baseDir, type, win) {
@@ -21,7 +45,7 @@ export default async function getDirTree(baseDir, type, win) {
     let all = {
         name: baseDir,
         children: [],
-        type: 'folder',
+        type: "folder",
         dirPath: dirPath,
     };
     let count = 0;
@@ -47,7 +71,11 @@ export default async function getDirTree(baseDir, type, win) {
                 if (obj != null) arr.push(obj);
                 if (obj != null && obj.children?.length == 0) {
                     let dirValArr = fs.readdirSync(tempDir);
-                    return await getFileJson(dirValArr, obj.children, obj.dirPath);
+                    return await getFileJson(
+                        dirValArr,
+                        obj.children,
+                        obj.dirPath,
+                    );
                 }
             });
         }
@@ -69,10 +97,11 @@ export default async function getDirTree(baseDir, type, win) {
         // 判断路径是否为文件夹
         if (!fs.statSync(tempDir).isFile()) {
             obj.children = [];
-            obj.type = 'folder';
+            obj.type = "folder";
         } else {
-            if (getType == 'dir') return null;
-            if (musicType.indexOf(path.extname(tempDir).toLowerCase()) == -1) return null;
+            if (getType == "dir") return null;
+            if (musicType.indexOf(path.extname(tempDir).toLowerCase()) == -1)
+                return null;
             const result = await parseFile(tempDir);
             obj.id = nanoid();
             obj.common = {
@@ -93,7 +122,7 @@ export default async function getDirTree(baseDir, type, win) {
                 duration: result.format.duration,
                 sampleRate: result.format.sampleRate,
             };
-            win.webContents.send('local-music-count', count++);
+            win.webContents.send("local-music-count", count++);
         }
         return obj;
     }

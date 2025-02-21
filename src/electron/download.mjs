@@ -14,7 +14,9 @@ const MusicDownload = (win) => {
     };
 
     ipcMain.on("download", async (event, args) => {
-        downloadObj.fileName = args.name.replaceAll("/", " - ").replaceAll("\\", " - ");
+        downloadObj.fileName = args.name
+            .replaceAll("/", " - ")
+            .replaceAll("\\", " - ");
         downloadObj.downloadUrl = args.url;
         downloadObj.type = args.type;
         const savePath = await settingsStore.get("settings");
@@ -24,7 +26,10 @@ const MusicDownload = (win) => {
 
     win.webContents.session.on("will-download", (event, item, webContents) => {
         item.setSavePath(
-            path.join(downloadObj.savePath, downloadObj.fileName + "." + downloadObj.type)
+            path.join(
+                downloadObj.savePath,
+                downloadObj.fileName + "." + downloadObj.type,
+            ),
         );
 
         const totalBytes = item.getTotalBytes();
@@ -58,7 +63,13 @@ const MusicDownload = (win) => {
                     item.setSavePath(alterPath + "." + downloadObj.type);
                     if (interruptedTimes > 3) {
                         item.setSavePath(
-                            path.join(downloadObj.savePath, "undefined_name_" + nanoid() + "." + downloadObj.type)
+                            path.join(
+                                downloadObj.savePath,
+                                "undefined_name_" +
+                                    nanoid() +
+                                    "." +
+                                    downloadObj.type,
+                            ),
                         );
                         interruptedTimes = 0;
                     }
