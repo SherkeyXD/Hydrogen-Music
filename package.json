@@ -2,7 +2,7 @@
     "name": "hydrogen-music",
     "private": true,
     "version": "0.5.1",
-    "main": "src/background.mjs",
+    "main": "background.mjs",
     "author": "Kaidesuyo & SherkeyXD",
     "scripts": {
         "dev": "vite",
