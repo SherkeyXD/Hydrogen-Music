@@ -2,11 +2,15 @@
 import { ref, watch } from "vue";
 import QRCode from "qrcode";
 import axios from "axios";
-import { songTime2, loadMusicVideo, unloadMusicVideo } from "../utils/player";
+import {
+    songTime2,
+    loadMusicVideo,
+    unloadMusicVideo,
+} from "../utils/player.mjs";
 import VueSlider from "vue-slider-component";
-import { dialogOpen, noticeOpen } from "../utils/dialog";
-import { useUserStore } from "../store/userStore";
-import { usePlayerStore } from "../store/playerStore";
+import { dialogOpen, noticeOpen } from "../utils/dialog.mjs";
+import { useUserStore } from "../store/userStore.mjs";
+import { usePlayerStore } from "../store/playerStore.mjs";
 import { storeToRefs } from "pinia";
 
 const userStore = useUserStore();

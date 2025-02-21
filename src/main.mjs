@@ -1,9 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import router from "./router/router.js";
-import pinia from "./store/pinia.js";
-import { init } from "./utils/initApp.js";
-import lazy from "./utils/lazy.js";
+import router from "./router/router.mjs";
+import pinia from "./store/pinia.mjs";
+import { init } from "./utils/initApp.mjs";
+import lazy from "./utils/lazy.mjs";
 import "./style.css";
 import "normalize.css";
 import "./assets/css/common.css";

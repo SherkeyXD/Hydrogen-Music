@@ -47,7 +47,7 @@ export function deleteCloudSong(params) {
 /**
  * 说明 : 登录后调用此接口,使用'Content-Type': 'multipart/form-data'上传 mp3 formData(name 为'songFile'),可上传歌曲到云盘
  * 参考: https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/public/cloud.html
- * 支持命令行调用,参考 module_example 目录下song_upload.js
+ * 支持命令行调用,参考 module_example 目录下song_upload.mjs
  * @param {*} params
  * @returns
  */

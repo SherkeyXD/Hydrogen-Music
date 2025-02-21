@@ -9,7 +9,7 @@ import { useUserStore } from "../store/userStore";
 import { useLibraryStore } from "../store/libraryStore";
 import { useLocalStore } from "../store/localStore";
 import { storeToRefs } from "pinia";
-import { scanMusic } from "../utils/locaMusic.js";
+import { scanMusic } from "../utils/locaMusic.mjs";
 
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);

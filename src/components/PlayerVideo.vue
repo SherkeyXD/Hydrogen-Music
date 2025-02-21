@@ -2,8 +2,8 @@
 import { onMounted, watch } from "vue";
 import Plyr from "plyr";
 import "../assets/css/plyr.css";
-import { musicVideoCheck } from "../utils/player";
-import { usePlayerStore } from "../store/playerStore";
+import { musicVideoCheck } from "../utils/player.mjs";
+import { usePlayerStore } from "../store/playerStore.mjs";
 const playerStore = usePlayerStore();
 
 onMounted(() => {

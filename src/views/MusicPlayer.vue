@@ -3,7 +3,7 @@ import Player from "../components/Player.vue";
 import Lyric from "../components/Lyric.vue";
 import MusicVideo from "../components/MusicVideo.vue";
 import PlayerVideo from "../components/PlayerVideo.vue";
-import { usePlayerStore } from "../store/playerStore";
+import { usePlayerStore } from "../store/playerStore.mjs";
 const playerStore = usePlayerStore();
 </script>
 

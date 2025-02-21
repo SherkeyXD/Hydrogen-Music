@@ -1,19 +1,26 @@
-const startNeteaseMusicApi = require("./src/electron/services");
-const IpcMainEvent = require("./src/electron/ipcMain");
-const MusicDownload = require("./src/electron/download");
-const LocalFiles = require("./src/electron/localmusic");
-const InitTray = require("./src/electron/tray");
-const registerShortcuts = require("./src/electron/shortcuts");
+import { app, BrowserWindow, globalShortcut } from "electron";
+import Winstate from "electron-win-state";
+// import { autoUpdater } from 'update-electron-app';
+import path from "path";
+import { fileURLToPath } from "url";
+import Store from "electron-store";
 
-const { app, BrowserWindow, globalShortcut } = require("electron");
-const Winstate = require("electron-win-state").default;
-const { autoUpdater } = require("update-electron-app");
-const path = require("path");
-const Store = require("electron-store");
+import startNeteaseMusicApi from "./src/electron/services.mjs";
+import IpcMainEvent from "./src/electron/ipcMain.mjs";
+import MusicDownload from "./src/electron/download.mjs";
+import LocalFiles from "./src/electron/localmusic.mjs";
+import InitTray from "./src/electron/tray.mjs";
+import registerShortcuts from "./src/electron/shortcuts.mjs";
+
 const settingsStore = new Store({ name: "settings" });
 
+// 获取 __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 let myWindow = null;
-//electron单例
+
+// Electron 单例
 const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
@@ -43,14 +50,16 @@ if (!gotTheLock) {
         globalShortcut.unregisterAll();
     });
 }
+
 const createWindow = () => {
     process.env.DIST = path.join(__dirname, "./");
     const indexHtml = path.join(process.env.DIST, "dist/index.html");
     const winstate = new Winstate({
-        //自定义默认窗口大小
+        // 自定义默认窗口大小
         defaultWidth: 1024,
         defaultHeight: 672,
     });
+
     const win = new BrowserWindow({
         minWidth: 1024,
         minHeight: 672,
@@ -58,43 +67,53 @@ const createWindow = () => {
         title: "Hydrogen Music",
         icon: path.resolve(__dirname, "./src/assets/icon/icon.ico"),
         backgroundColor: "#fff",
-        //记录窗口大小
+        // 记录窗口大小
         ...winstate.winOptions,
         show: false,
         webPreferences: {
-            //预加载脚本
-            preload: path.resolve(__dirname, "./src/electron/preload.js"),
+            // 预加载脚本
+            preload: path.resolve(__dirname, "./src/electron/preload.mjs"),
             webSecurity: false,
         },
     });
+
+    winState.manage(this.win);
     myWindow = win;
-    if (process.resourcesPath.indexOf("\\node_modules\\") != -1)
+
+    if (process.resourcesPath.includes("\\node_modules\\")) {
         win.loadURL("http://localhost:5173/");
-    else win.loadFile(indexHtml);
+    } else {
+        win.loadFile(indexHtml);
+    }
+
     win.once("ready-to-show", () => {
         win.show();
         // 先关了自动更新
-        //if(process.resourcesPath.indexOf('\\node_modules\\') == -1) {
-        //    autoUpdater.autoDownload = false
-        //    autoUpdater.on('update-available', info => {
-        //        win.webContents.send('check-update', info.version)
-        //    });
-        //    autoUpdater.checkForUpdatesAndNotify()
-        //}
+        // if (process.resourcesPath.indexOf('\\node_modules\\') === -1) {
+        //     autoUpdater.autoDownload = false;
+        //     autoUpdater.on('update-available', info => {
+        //         win.webContents.send('check-update', info.version);
+        //     });
+        //     autoUpdater.checkForUpdatesAndNotify();
+        // }
     });
+
     winstate.manage(win);
+
     win.on("close", async (event) => {
         event.preventDefault();
         const settings = await settingsStore.get("settings");
-        if (settings.other.quitApp == "minimize") {
+        if (settings.other.quitApp === "minimize") {
             win.hide();
-        } else if (settings.other.quitApp == "quit") {
+        } else if (settings.other.quitApp === "quit") {
             win.webContents.send("player-save");
         }
     });
-    //api初始化
+
+    // API 初始化
     startNeteaseMusicApi();
-    //ipcMain初始化
+
+    // ipcMain 初始化
     IpcMainEvent(win, app);
     MusicDownload(win);
     LocalFiles(win, app);

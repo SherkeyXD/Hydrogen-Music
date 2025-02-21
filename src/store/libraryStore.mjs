@@ -13,7 +13,7 @@ import {
     getArtistAlbum,
 } from "../api/artist.mjs";
 import { getArtistMV } from "../api/mv.mjs";
-import { mapSongsPlayableStatus } from "../utils/songStatus";
+import { mapSongsPlayableStatus } from "../utils/songStatus.mjs";
 
 export const useLibraryStore = defineStore("libraryStore", {
     state: () => {

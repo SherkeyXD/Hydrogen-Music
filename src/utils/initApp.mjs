@@ -1,13 +1,13 @@
 import pinia from "../store/pinia";
 import { isLogin } from "../utils/authority";
-import { loadLastSong } from "./player";
-import { scanMusic } from "./locaMusic";
+import { loadLastSong } from "./player.mjs";
+import { scanMusic } from "./locaMusic.mjs";
 import { getUserProfile, getLikelist } from "../api/user.mjs";
 import { useUserStore } from "../store/userStore";
 import { usePlayerStore } from "../store/playerStore";
 import { useLocalStore } from "../store/localStore";
 import { storeToRefs } from "pinia";
-import { insertCustomFontStyle } from "./setFont";
+import { insertCustomFontStyle } from "./setFont.mjs";
 
 const userStore = useUserStore(pinia);
 const playerStore = usePlayerStore();

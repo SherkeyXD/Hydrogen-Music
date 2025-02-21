@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "../utils/request.mjs";
 
 /**
  * 登录后调用此接口 ,可获取全部新碟

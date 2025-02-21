@@ -2,13 +2,14 @@
     "name": "hydrogen-music",
     "private": true,
     "version": "0.5.1",
-    "main": "background.js",
+    "main": "background.mjs",
     "author": "Kaidesuyo & SherkeyXD",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "start": "nodemon --exec electron . --watch ./ --ext .html",
+        "start": "nodemon --exec electron --trace-warnings . --watch ./ --ext .html",
+        "prettier": "prettier . --write",
         "dist": "vite build && electron-builder -p never",
         "publish": "vite build && electron-builder -p always"
     },

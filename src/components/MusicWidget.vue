@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import { songTime2 } from "../utils/player";
+import { songTime2 } from "../utils/player.mjs";
 import VueSlider from "vue-slider-component";
 import "../assets/css/slider.css";
 import PlayList from "./PlayList.vue";
@@ -14,9 +14,9 @@ import {
     changeProgress,
     changePlayMode,
     likeSong,
-} from "../utils/player";
-import { useUserStore } from "../store/userStore";
-import { usePlayerStore } from "../store/playerStore";
+} from "../utils/player.mjs";
+import { useUserStore } from "../store/userStore.mjs";
+import { usePlayerStore } from "../store/playerStore.mjs";
 import { storeToRefs } from "pinia";
 const router = useRouter();
 const userStore = useUserStore();

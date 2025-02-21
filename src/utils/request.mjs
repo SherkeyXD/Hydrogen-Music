@@ -1,11 +1,11 @@
 import axios from "axios";
-import { getCookie, isLogin } from "../utils/authority";
-import pinia from "../store/pinia";
-import { useLibraryStore } from "../store/libraryStore";
+import { getCookie, isLogin } from "./authority.mjs";
+import pinia from "../store/pinia.mjs";
+import { useLibraryStore } from "../store/libraryStore.mjs";
 
 const libraryStore = useLibraryStore(pinia);
 
-import { noticeOpen } from "./dialog";
+import { noticeOpen } from "./dialog.mjs";
 const request = axios.create({
     baseURL: "http://localhost:36530",
     withCredentials: true,

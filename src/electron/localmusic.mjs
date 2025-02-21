@@ -1,5 +1,5 @@
 import { ipcMain } from "electron";
-import getDirTree from "./dirTree.js"; // 确保文件扩展名正确
+import getDirTree from "./dirTree.mjs"; // 确保文件扩展名正确
 import Store from "electron-store";
 
 export default function LocalFiles(win, app) {

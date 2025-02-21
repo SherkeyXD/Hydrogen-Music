@@ -11,8 +11,8 @@ import GlobalDialog from "./components/GlobalDialog.vue";
 import GlobalNotice from "./components/GlobalNotice.vue";
 import Update from "./components/Update.vue";
 
-import { usePlayerStore } from "./store/playerStore";
-import { useOtherStore } from "./store/otherStore";
+import { usePlayerStore } from "./store/playerStore.mjs";
+import { useOtherStore } from "./store/otherStore.mjs";
 
 const playerStore = usePlayerStore();
 const otherStore = useOtherStore();

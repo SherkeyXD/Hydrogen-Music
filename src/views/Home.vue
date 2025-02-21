@@ -2,9 +2,9 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { logout } from "../api/user.mjs";
-import { noticeOpen } from "../utils/dialog";
-import { isLogin } from "../utils/authority";
-import { useUserStore } from "../store/userStore";
+import { noticeOpen } from "../utils/dialog.mjs";
+import { isLogin } from "../utils/authority.mjs";
+import { useUserStore } from "../store/userStore.mjs";
 
 const router = useRouter();
 const userStore = useUserStore();

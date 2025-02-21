@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from "../utils/request.mjs";
 
 /**
  * 调用此接口获取轮播图

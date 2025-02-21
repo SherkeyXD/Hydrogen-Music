@@ -1,4 +1,4 @@
-import server from "NeteaseCloudMusicApi/server";
+import server from "NeteaseCloudMusicApi/server.js";
 
 //启动网易云音乐API
 export default async function startNeteaseMusicApi() {

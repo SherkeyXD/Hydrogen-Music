@@ -1,6 +1,6 @@
-import pinia from "../store/pinia";
-import { useUserStore } from "../store/userStore";
-import { isLogin } from "./authority";
+import pinia from "../store/pinia.mjs";
+import { useUserStore } from "../store/userStore.mjs";
+import { isLogin } from "./authority.mjs";
 
 const userStore = useUserStore(pinia);
 function checkSongPlayable(song, _privilege) {

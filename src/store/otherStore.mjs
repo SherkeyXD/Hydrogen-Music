@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { getMVDetail, getMVUrl } from "../api/mv.mjs";
 import { search } from "../api/other.mjs";
-import { mapSongsPlayableStatus } from "../utils/songStatus";
+import { mapSongsPlayableStatus } from "../utils/songStatus.mjs";
 
 export const useOtherStore = defineStore("otherStore", {
     state: () => {
