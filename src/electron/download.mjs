@@ -1,8 +1,9 @@
-const { ipcMain } = require("electron");
-const path = require("path");
-const Store = require("electron-store");
-const { nanoid } = require('nanoid')
-module.exports = MusicDownload = (win) => {
+import { ipcMain } from "electron";
+import path from "path";
+import Store from "electron-store";
+import { nanoid } from "nanoid";
+
+const MusicDownload = (win) => {
     const settingsStore = new Store({ name: "settings" });
     let isClose = false;
     let downloadObj = {
@@ -11,6 +12,7 @@ module.exports = MusicDownload = (win) => {
         type: "",
         savePath: "",
     };
+
     ipcMain.on("download", async (event, args) => {
         downloadObj.fileName = args.name.replaceAll("/", " - ").replaceAll("\\", " - ");
         downloadObj.downloadUrl = args.url;
@@ -56,7 +58,7 @@ module.exports = MusicDownload = (win) => {
                     item.setSavePath(alterPath + "." + downloadObj.type);
                     if (interruptedTimes > 3) {
                         item.setSavePath(
-                            path.join(downloadObj.savePath, "undefined_name_" + nanoid()  + "." + downloadObj.type)
+                            path.join(downloadObj.savePath, "undefined_name_" + nanoid() + "." + downloadObj.type)
                         );
                         interruptedTimes = 0;
                     }
@@ -71,6 +73,7 @@ module.exports = MusicDownload = (win) => {
             }
             win.webContents.send("download-progress", progress);
         });
+
         item.once("done", (event, state) => {
             if (state === "completed") {
                 console.log("Download successfully");
@@ -82,17 +85,24 @@ module.exports = MusicDownload = (win) => {
             }
             if (!isClose) win.webContents.send("download-next");
         });
+
         ipcMain.on("download-resume", () => {
             item.resume();
         });
-        ipcMain.on("download-pause", (close) => {
-            if (close == "shutdown") {
+
+        ipcMain.on("download-pause", (event, close) => {
+            if (close === "shutdown") {
                 isClose = true;
                 item.cancel();
-            } else item.pause();
+            } else {
+                item.pause();
+            }
         });
+
         ipcMain.on("download-cancel", () => {
             item.cancel();
         });
     });
 };
+
+export default MusicDownload;
