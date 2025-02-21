@@ -1,5 +1,4 @@
 import { app, BrowserWindow, globalShortcut } from "electron";
-import Winstate from "electron-win-state";
 // import { autoUpdater } from 'update-electron-app';
 import path from "path";
 import { fileURLToPath } from "url";
@@ -54,13 +53,10 @@ if (!gotTheLock) {
 const createWindow = () => {
     process.env.DIST = path.join(__dirname, "./");
     const indexHtml = path.join(process.env.DIST, "dist/index.html");
-    const winstate = new Winstate({
-        // 自定义默认窗口大小
-        defaultWidth: 1024,
-        defaultHeight: 672,
-    });
 
     const win = new BrowserWindow({
+        defaultWidth: 1024,
+        defaultHeight: 672,
         minWidth: 1024,
         minHeight: 672,
         frame: false,
@@ -68,7 +64,7 @@ const createWindow = () => {
         icon: path.resolve(__dirname, "./src/assets/icon/icon.ico"),
         backgroundColor: "#fff",
         // 记录窗口大小
-        ...winstate.winOptions,
+        //...winState.winOptions,
         show: false,
         webPreferences: {
             // 预加载脚本
@@ -77,11 +73,10 @@ const createWindow = () => {
         },
     });
 
-    winState.manage(this.win);
     myWindow = win;
 
     if (process.resourcesPath.includes("\\node_modules\\")) {
-        win.loadURL("http://localhost:5173/");
+        win.loadURL("https://github.com/");
     } else {
         win.loadFile(indexHtml);
     }
@@ -98,7 +93,6 @@ const createWindow = () => {
         // }
     });
 
-    winstate.manage(win);
 
     win.on("close", async (event) => {
         event.preventDefault();
