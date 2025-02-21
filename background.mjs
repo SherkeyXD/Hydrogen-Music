@@ -55,8 +55,8 @@ const createWindow = () => {
     const indexHtml = path.join(process.env.DIST, "dist/index.html");
 
     const win = new BrowserWindow({
-        defaultWidth: 1024,
-        defaultHeight: 672,
+        width: 1024,
+        height: 672,
         minWidth: 1024,
         minHeight: 672,
         frame: false,
@@ -68,7 +68,7 @@ const createWindow = () => {
         show: false,
         webPreferences: {
             // 预加载脚本
-            preload: path.resolve(__dirname, "./src/electron/preload.mjs"),
+            preload: path.resolve(__dirname, "./src/electron/preload.js"),
             webSecurity: false,
         },
     });
@@ -116,4 +116,4 @@ const createWindow = () => {
     registerShortcuts(win);
 };
 
-process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
+//process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
