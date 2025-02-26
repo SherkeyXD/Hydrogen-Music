@@ -82,6 +82,7 @@ const createWindow = () => {
     if (process.resourcesPath.includes("\\node_modules\\")) {
         // dev mode
         win.loadURL("http://localhost:5173/");
+        console.log("dev mode enabled");
     } else {
         win.loadFile(indexHtml);
     }
@@ -115,7 +116,7 @@ const createWindow = () => {
     IpcMainEvent(win, app);
     MusicDownload(win);
     LocalFiles(win, app);
-    InitTray(win, app, path.resolve(__dirname, "./src/assets/icon/icon.ico"));
+    InitTray(win, app, path.resolve(__dirname, "./assets/icon/icon.ico"));
     registerShortcuts(win);
 };
 
