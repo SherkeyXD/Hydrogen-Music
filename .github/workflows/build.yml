@@ -43,4 +43,4 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: ${{ matrix.os }}
-                  path: ./out/hydrogen-music/*
+                  path: ./out/make/**/{x64,arm64}/*
