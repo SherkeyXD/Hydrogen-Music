@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 let myWindow = null;
 
 // Squirrel
-if (require("electron-squirrel-startup")) app.quit();
+//if (require("electron-squirrel-startup")) app.quit();
 app.setAppUserModelId("com.sherkeyxd.HydrogenMusic");
 
 // Electron 单例
@@ -55,7 +55,7 @@ if (!gotTheLock) {
 }
 
 const createWindow = () => {
-    process.env.DIST = path.join(__dirname, "./");
+    process.env.DIST = path.join(__dirname, "../");
     const indexHtml = path.join(process.env.DIST, "dist/index.html");
 
     const win = new BrowserWindow({
@@ -65,14 +65,14 @@ const createWindow = () => {
         minHeight: 672,
         frame: false,
         title: "Hydrogen Music",
-        icon: path.resolve(__dirname, "./src/assets/icon/icon.ico"),
+        icon: path.resolve(__dirname, "./assets/icon/icon.ico"),
         backgroundColor: "#fff",
         // 记录窗口大小
         //...winState.winOptions,
         show: false,
         webPreferences: {
             // 预加载脚本
-            preload: path.resolve(__dirname, "./src/electron/preload.js"),
+            preload: path.resolve(__dirname, "./electron/preload.js"),
             webSecurity: false,
         },
     });

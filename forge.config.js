@@ -15,6 +15,9 @@ module.exports = {
             if (/^\/dist/.test(filepath)) {
                 return false;
             }
+            if (/^\/src/.test(filepath)) {
+                return false;
+            }
             if (/^\/package.json/.test(filepath)) {
                 return false;
             }
