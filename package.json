@@ -3,7 +3,7 @@
     "productName": "Hydrogen Music",
     "private": true,
     "version": "0.6.0",
-    "main": "background.mjs",
+    "main": "src/background.mjs",
     "author": "Kaidesuyo & SherkeyXD",
     "description": "仿明日方舟工业风的音乐播放器",
     "scripts": {

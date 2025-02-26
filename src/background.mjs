@@ -4,12 +4,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 import Store from "electron-store";
 
-import startNeteaseMusicApi from "./src/electron/services.mjs";
-import IpcMainEvent from "./src/electron/ipcMain.mjs";
-import MusicDownload from "./src/electron/download.mjs";
-import LocalFiles from "./src/electron/localmusic.mjs";
-import InitTray from "./src/electron/tray.mjs";
-import registerShortcuts from "./src/electron/shortcuts.mjs";
+import startNeteaseMusicApi from "./electron/services.mjs";
+import IpcMainEvent from "./electron/ipcMain.mjs";
+import MusicDownload from "./electron/download.mjs";
+import LocalFiles from "./electron/localmusic.mjs";
+import InitTray from "./electron/tray.mjs";
+import registerShortcuts from "./electron/shortcuts.mjs";
 
 const settingsStore = new Store({ name: "settings" });
 

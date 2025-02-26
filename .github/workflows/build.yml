@@ -8,15 +8,15 @@ on:
 
 jobs:
     release:
-        name: build and release electron app
+        name: build
         runs-on: ${{ matrix.os }}
 
         strategy:
             fail-fast: false
             matrix:
-                node: ["22"]
                 os: ["windows-latest", "ubuntu-latest", "macos-latest"]
                 arch: ["x64", "arm64"]
+                node: ["22"]
 
         env:
             NODE_OPTIONS: "--max_old_space_size=6144"
