@@ -19,6 +19,10 @@ const __dirname = path.dirname(__filename);
 
 let myWindow = null;
 
+// Squirrel
+if (require("electron-squirrel-startup")) app.quit();
+app.setAppUserModelId("com.sherkeyxd.HydrogenMusic");
+
 // Electron 单例
 const gotTheLock = app.requestSingleInstanceLock();
 

@@ -1,9 +1,11 @@
 {
     "name": "hydrogen-music",
+    "productName": "Hydrogen Music",
     "private": true,
-    "version": "0.5.1",
+    "version": "0.6.0",
     "main": "background.mjs",
     "author": "Kaidesuyo & SherkeyXD",
+    "description": "仿明日方舟工业风的音乐播放器",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
@@ -36,11 +38,14 @@
     },
     "devDependencies": {
         "@electron-forge/cli": "^7.7.0",
+        "@electron-forge/maker-deb": "^7.7.0",
+        "@electron-forge/maker-rpm": "^7.7.0",
         "@electron-forge/maker-squirrel": "^7.7.0",
         "@electron-forge/maker-zip": "^7.7.0",
         "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
         "@electron-forge/plugin-fuses": "^7.7.0",
         "@electron-forge/plugin-vite": "^7.7.0",
+        "@electron-forge/publisher-github": "^7.7.0",
         "@electron/fuses": "^1.8.0",
         "@vitejs/plugin-vue": "^5.2.1",
         "electron": "34.2.0",
