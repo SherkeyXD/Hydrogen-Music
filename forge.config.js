@@ -49,7 +49,7 @@ module.exports = {
                 options: {
                     maintainer: "SherkeyXD",
                     homepage: "https://github.com/SherkeyXD/Hydrogen-Music",
-                    icon: "img/icon.png",
+                    icon: "./img/icon.png",
                 },
             },
         },
@@ -58,7 +58,7 @@ module.exports = {
             config: {
                 options: {
                     homepage: "https://github.com/SherkeyXD/Hydrogen-Music",
-                    icon: "img/icon.png",
+                    icon: "./img/icon.png",
                 },
             },
         },
