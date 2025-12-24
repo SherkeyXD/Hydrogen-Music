@@ -79,7 +79,8 @@ const createWindow = () => {
 
     myWindow = win;
 
-    if (process.resourcesPath.includes("\\node_modules\\")) {
+    const isDev = process.resourcesPath.includes("node_modules") || !app.isPackaged;
+    if (isDev) {
         // dev mode
         win.loadURL("http://localhost:5173/");
         console.log("dev mode enabled");
@@ -116,7 +117,11 @@ const createWindow = () => {
     IpcMainEvent(win, app);
     MusicDownload(win);
     LocalFiles(win, app);
-    InitTray(win, app, path.resolve(__dirname, "./assets/icon/icon.ico"));
+    // Linux 系统使用 PNG 图标，其他系统使用 ICO
+    const trayIconPath = process.platform === "linux" 
+        ? path.resolve(__dirname, "../img/icon.png")
+        : path.resolve(__dirname, "./assets/icon/icon.ico");
+    InitTray(win, app, trayIconPath);
     registerShortcuts(win);
 };
 
